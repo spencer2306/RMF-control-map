@@ -1,0 +1,39 @@
+{
+    "properties": {
+      "displayName": "The information system automatically terminates a user session after organization-defined conditions or trigger events.",
+      "policyType": "Custom",
+      "mode": "All",
+      "description": "The information system automatically terminates a user session after organization-defined conditions or trigger events requiring session disconnect.",
+      "metadata": {
+        "category": "Automation",
+        "createdBy": "48891907-4cba-4768-9d3b-43612fce53ca",
+        "createdOn": "2020-07-31T18:00:30.1733071Z",
+        "updatedBy": null,
+        "updatedOn": null
+      },
+      "parameters": {
+        "allowedLocations": {
+          "type": "Array",
+          "metadata": {
+            "displayName": "Allowed locations",
+            "description": "The list of allowed locations for resources.",
+            "strongType": "location"
+          }
+        }
+      },
+      "policyRule": {
+        "if": {
+          "not": {
+            "field": "location",
+            "in": "[parameters('allowedLocations')]"
+          }
+        },
+        "then": {
+          "effect": "audit"
+        }
+      }
+    },
+    "id": "/subscriptions/566fd9f2-24a6-4af9-87c6-100ed836e3cb/providers/Microsoft.Authorization/policyDefinitions/d8ad94e1-6db9-438e-8698-259242d1a5b1",
+    "type": "Microsoft.Authorization/policyDefinitions",
+    "name": "d8ad94e1-6db9-438e-8698-259242d1a5b1"
+  }

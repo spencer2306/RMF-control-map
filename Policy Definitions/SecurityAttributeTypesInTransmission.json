@@ -1,0 +1,39 @@
+{
+    "properties": {
+      "displayName": "The organization defines security attributes, having organization-defined types of security attribute values, which are ass",
+      "policyType": "Custom",
+      "mode": "All",
+      "description": "The organization defines security attributes, having organization-defined types of security attribute values, which are associated with information in transmission.",
+      "metadata": {
+        "category": "Security Center",
+        "createdBy": "48891907-4cba-4768-9d3b-43612fce53ca",
+        "createdOn": "2020-07-31T18:27:30.5755384Z",
+        "updatedBy": null,
+        "updatedOn": null
+      },
+      "parameters": {
+        "allowedLocations": {
+          "type": "Array",
+          "metadata": {
+            "displayName": "Allowed locations",
+            "description": "The list of allowed locations for resources.",
+            "strongType": "location"
+          }
+        }
+      },
+      "policyRule": {
+        "if": {
+          "not": {
+            "field": "location",
+            "in": "[parameters('allowedLocations')]"
+          }
+        },
+        "then": {
+          "effect": "audit"
+        }
+      }
+    },
+    "id": "/subscriptions/566fd9f2-24a6-4af9-87c6-100ed836e3cb/providers/Microsoft.Authorization/policyDefinitions/ad5098b5-49e9-4b77-86bc-9a6b563f0ac4",
+    "type": "Microsoft.Authorization/policyDefinitions",
+    "name": "ad5098b5-49e9-4b77-86bc-9a6b563f0ac4"
+  }

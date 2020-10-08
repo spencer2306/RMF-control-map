@@ -1,0 +1,39 @@
+{
+    "properties": {
+      "displayName": "The information system displays an explicit logout message to users indicating the reliable termination of authenticated.",
+      "policyType": "Custom",
+      "mode": "All",
+      "description": "The information system displays an explicit logout message to users indicating the reliable termination of authenticated communications sessions.",
+      "metadata": {
+        "category": "Automation",
+        "createdBy": "48891907-4cba-4768-9d3b-43612fce53ca",
+        "createdOn": "2020-07-31T18:07:21.1068394Z",
+        "updatedBy": null,
+        "updatedOn": null
+      },
+      "parameters": {
+        "allowedLocations": {
+          "type": "Array",
+          "metadata": {
+            "displayName": "Allowed locations",
+            "description": "The list of allowed locations for resources.",
+            "strongType": "location"
+          }
+        }
+      },
+      "policyRule": {
+        "if": {
+          "not": {
+            "field": "location",
+            "in": "[parameters('allowedLocations')]"
+          }
+        },
+        "then": {
+          "effect": "audit"
+        }
+      }
+    },
+    "id": "/subscriptions/566fd9f2-24a6-4af9-87c6-100ed836e3cb/providers/Microsoft.Authorization/policyDefinitions/ff2cd285-ae29-4de6-82f4-3c5a60778906",
+    "type": "Microsoft.Authorization/policyDefinitions",
+    "name": "ff2cd285-ae29-4de6-82f4-3c5a60778906"
+  }

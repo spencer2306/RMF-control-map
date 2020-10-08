@@ -1,0 +1,39 @@
+{
+    "properties": {
+      "displayName": "The information system limits the number of concurrent sessions for each organization-defined account and/or account type.",
+      "policyType": "Custom",
+      "mode": "All",
+      "description": "The information system limits the number of concurrent sessions for each organization-defined account and/or account type to an organization-defined number of sessions.",
+      "metadata": {
+        "category": "Security Center",
+        "createdBy": "48891907-4cba-4768-9d3b-43612fce53ca",
+        "createdOn": "2020-07-31T14:19:01.7113255Z",
+        "updatedBy": null,
+        "updatedOn": null
+      },
+      "parameters": {
+        "allowedLocations": {
+          "type": "Array",
+          "metadata": {
+            "displayName": "Allowed locations",
+            "description": "The list of allowed locations for resources.",
+            "strongType": "location"
+          }
+        }
+      },
+      "policyRule": {
+        "if": {
+          "not": {
+            "field": "location",
+            "in": "[parameters('allowedLocations')]"
+          }
+        },
+        "then": {
+          "effect": "audit"
+        }
+      }
+    },
+    "id": "/subscriptions/566fd9f2-24a6-4af9-87c6-100ed836e3cb/providers/Microsoft.Authorization/policyDefinitions/e2be7fba-1543-492a-a707-71481865447d",
+    "type": "Microsoft.Authorization/policyDefinitions",
+    "name": "e2be7fba-1543-492a-a707-71481865447d"
+  }

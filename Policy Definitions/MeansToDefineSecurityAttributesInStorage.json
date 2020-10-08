@@ -1,0 +1,39 @@
+{
+    "properties": {
+      "displayName": "The organization provides the means to associate organization-defined types of security attributes having organization-define",
+      "policyType": "Custom",
+      "mode": "All",
+      "description": "The organization provides the means to associate organization-defined types of security attributes having organization-defined security attribute values with information in storage.",
+      "metadata": {
+        "category": "General",
+        "createdBy": "48891907-4cba-4768-9d3b-43612fce53ca",
+        "createdOn": "2020-07-31T18:52:44.3666342Z",
+        "updatedBy": null,
+        "updatedOn": null
+      },
+      "parameters": {
+        "allowedLocations": {
+          "type": "Array",
+          "metadata": {
+            "displayName": "Allowed locations",
+            "description": "The list of allowed locations for resources.",
+            "strongType": "location"
+          }
+        }
+      },
+      "policyRule": {
+        "if": {
+          "not": {
+            "field": "location",
+            "in": "[parameters('allowedLocations')]"
+          }
+        },
+        "then": {
+          "effect": "audit"
+        }
+      }
+    },
+    "id": "/subscriptions/566fd9f2-24a6-4af9-87c6-100ed836e3cb/providers/Microsoft.Authorization/policyDefinitions/3ffb7fbf-d9dc-4b9b-8fdf-dc6bc7162fc6",
+    "type": "Microsoft.Authorization/policyDefinitions",
+    "name": "3ffb7fbf-d9dc-4b9b-8fdf-dc6bc7162fc6"
+  }

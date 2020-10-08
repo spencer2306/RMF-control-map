@@ -1,0 +1,39 @@
+{
+    "properties": {
+      "displayName": "The information system provides the capability for users to directly initiate session lock mechanisms.",
+      "policyType": "Custom",
+      "mode": "All",
+      "description": "The information system provides the capability for users to directly initiate session lock mechanisms.",
+      "metadata": {
+        "category": "General",
+        "createdBy": "48891907-4cba-4768-9d3b-43612fce53ca",
+        "createdOn": "2020-07-31T17:06:22.2719365Z",
+        "updatedBy": null,
+        "updatedOn": null
+      },
+      "parameters": {
+        "allowedLocations": {
+          "type": "Array",
+          "metadata": {
+            "displayName": "Allowed locations",
+            "description": "The list of allowed locations for resources.",
+            "strongType": "location"
+          }
+        }
+      },
+      "policyRule": {
+        "if": {
+          "not": {
+            "field": "location",
+            "in": "[parameters('allowedLocations')]"
+          }
+        },
+        "then": {
+          "effect": "audit"
+        }
+      }
+    },
+    "id": "/subscriptions/566fd9f2-24a6-4af9-87c6-100ed836e3cb/providers/Microsoft.Authorization/policyDefinitions/8b72acd0-6bd9-4147-9014-069ffa2b50a1",
+    "type": "Microsoft.Authorization/policyDefinitions",
+    "name": "8b72acd0-6bd9-4147-9014-069ffa2b50a1"
+  }

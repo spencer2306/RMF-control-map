@@ -1,0 +1,39 @@
+{
+    "properties": {
+      "displayName": "The organization ensures that the security attribute associations are retained with the information.",
+      "policyType": "Custom",
+      "mode": "All",
+      "description": "The organization ensures that the security attribute associations are retained with the information.",
+      "metadata": {
+        "category": "Monitoring",
+        "createdBy": "48891907-4cba-4768-9d3b-43612fce53ca",
+        "createdOn": "2020-07-31T19:16:56.0119944Z",
+        "updatedBy": null,
+        "updatedOn": null
+      },
+      "parameters": {
+        "allowedLocations": {
+          "type": "Array",
+          "metadata": {
+            "displayName": "Allowed locations",
+            "description": "The list of allowed locations for resources.",
+            "strongType": "location"
+          }
+        }
+      },
+      "policyRule": {
+        "if": {
+          "not": {
+            "field": "location",
+            "in": "[parameters('allowedLocations')]"
+          }
+        },
+        "then": {
+          "effect": "audit"
+        }
+      }
+    },
+    "id": "/subscriptions/566fd9f2-24a6-4af9-87c6-100ed836e3cb/providers/Microsoft.Authorization/policyDefinitions/91ba3d7c-70c0-462c-93c1-68c2261539b6",
+    "type": "Microsoft.Authorization/policyDefinitions",
+    "name": "91ba3d7c-70c0-462c-93c1-68c2261539b6"
+  }

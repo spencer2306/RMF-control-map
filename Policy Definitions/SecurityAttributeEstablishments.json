@@ -1,0 +1,39 @@
+{
+    "properties": {
+      "displayName": "The organization establishes the permitted organization-defined security attributes for organization-defined information s",
+      "policyType": "Custom",
+      "mode": "All",
+      "description": "The organization establishes the permitted organization-defined security attributes for organization-defined information systems.",
+      "metadata": {
+        "category": "Security Center",
+        "createdBy": "48891907-4cba-4768-9d3b-43612fce53ca",
+        "createdOn": "2020-07-31T19:24:49.5019538Z",
+        "updatedBy": null,
+        "updatedOn": null
+      },
+      "parameters": {
+        "allowedLocations": {
+          "type": "Array",
+          "metadata": {
+            "displayName": "Allowed locations",
+            "description": "The list of allowed locations for resources.",
+            "strongType": "location"
+          }
+        }
+      },
+      "policyRule": {
+        "if": {
+          "not": {
+            "field": "location",
+            "in": "[parameters('allowedLocations')]"
+          }
+        },
+        "then": {
+          "effect": "audit"
+        }
+      }
+    },
+    "id": "/subscriptions/566fd9f2-24a6-4af9-87c6-100ed836e3cb/providers/Microsoft.Authorization/policyDefinitions/585131a9-6f62-41d8-91b3-c74846bb843f",
+    "type": "Microsoft.Authorization/policyDefinitions",
+    "name": "585131a9-6f62-41d8-91b3-c74846bb843f"
+  }

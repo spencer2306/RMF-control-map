@@ -1,0 +1,39 @@
+{
+    "properties": {
+      "displayName": "The information system controls remote access methods.",
+      "policyType": "Custom",
+      "mode": "All",
+      "description": "The information system controls remote access methods.",
+      "metadata": {
+        "category": "Security Center",
+        "createdBy": "48891907-4cba-4768-9d3b-43612fce53ca",
+        "createdOn": "2020-07-31T20:04:32.4714923Z",
+        "updatedBy": null,
+        "updatedOn": null
+      },
+      "parameters": {
+        "allowedLocations": {
+          "type": "Array",
+          "metadata": {
+            "displayName": "Allowed locations",
+            "description": "The list of allowed locations for resources.",
+            "strongType": "location"
+          }
+        }
+      },
+      "policyRule": {
+        "if": {
+          "not": {
+            "field": "location",
+            "in": "[parameters('allowedLocations')]"
+          }
+        },
+        "then": {
+          "effect": "audit"
+        }
+      }
+    },
+    "id": "/subscriptions/566fd9f2-24a6-4af9-87c6-100ed836e3cb/providers/Microsoft.Authorization/policyDefinitions/cea54efc-27c4-41f0-87f0-a3608b395937",
+    "type": "Microsoft.Authorization/policyDefinitions",
+    "name": "cea54efc-27c4-41f0-87f0-a3608b395937"
+  }

@@ -1,0 +1,39 @@
+{
+  "properties": {
+    "displayName": "The information system conceals, via the session lock, information previously visible on the display with a publicly view.",
+    "policyType": "Custom",
+    "mode": "All",
+    "description": "The information system conceals, via the session lock, information previously visible on the display with a publicly viewable image.",
+    "metadata": {
+      "category": "Automation",
+      "createdBy": "48891907-4cba-4768-9d3b-43612fce53ca",
+      "createdOn": "2020-07-31T17:52:05.2514451Z",
+      "updatedBy": null,
+      "updatedOn": null
+    },
+    "parameters": {
+      "allowedLocations": {
+        "type": "Array",
+        "metadata": {
+          "displayName": "Allowed locations",
+          "description": "The list of allowed locations for resources.",
+          "strongType": "location"
+        }
+      }
+    },
+    "policyRule": {
+      "if": {
+        "not": {
+          "field": "location",
+          "in": "[parameters('allowedLocations')]"
+        }
+      },
+      "then": {
+        "effect": "audit"
+      }
+    }
+  },
+  "id": "/subscriptions/566fd9f2-24a6-4af9-87c6-100ed836e3cb/providers/Microsoft.Authorization/policyDefinitions/cb0bf7b5-baab-4d87-84fa-78f598a96b2b",
+  "type": "Microsoft.Authorization/policyDefinitions",
+  "name": "cb0bf7b5-baab-4d87-84fa-78f598a96b2b"
+}
